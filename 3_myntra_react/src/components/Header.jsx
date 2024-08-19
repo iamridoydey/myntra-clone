@@ -5,7 +5,7 @@ function Header() {
         <a href="#">
           <img
             className="myntra_home"
-            src="../images/myntra_logo.webp"
+            src="images/myntra_logo.webp"
             alt="Myntra Home"
           />
         </a>
