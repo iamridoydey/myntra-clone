@@ -7,6 +7,7 @@ function FetchItems() {
   const fetchItems = useSelector((state) => state.fetchStatus);
   const dispatch = useDispatch();
   useEffect(() => {
+    if (fetchItems.isProcessing) return;
     // Create an instance of AbortController to control the fetch request.
     const controller = new AbortController();
     const signal = controller.signal;
