@@ -2,15 +2,24 @@ import { Outlet } from "react-router-dom";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import FetchItems from "../components/FetchItems";
+import { useSelector } from "react-redux";
+import Spinner from "../components/Spinner";
+import "../../node_modules/bootstrap/dist/css/bootstrap.min.css"
 
 function App() {
+  const fetchStatus = useSelector((state) => state.fetchStatus);
+  const status = fetchStatus.isProcessing;
   return (
     <>
       <Header />
-      <FetchItems/>
-      <div className="mainContent">
-        <Outlet />
-      </div>
+      <FetchItems />
+      {!status ? (
+        <Spinner />
+      ) : (
+        <div className="mainContent">
+          <Outlet />
+        </div>
+      )}
       <Footer />
     </>
   );
