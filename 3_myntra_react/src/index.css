@@ -321,6 +321,10 @@ a.action_container:link {
   cursor: pointer;
 }
 
+.bagItems{
+  width: 65%;
+}
+
 .bag-item-container {
   margin-bottom: 8px;
   background: #fff;
@@ -329,7 +333,7 @@ a.action_container:link {
   border-radius: 4px;
   position: relative;
   padding: 12px 12px 0;
-  width: 60%;
+  width: 95%;
   display: flex;
   gap: 20px;
 }
@@ -392,3 +396,5 @@ h2.company, h3.item-name {
     width: 60px;
     height: 60px;
 }
+
+

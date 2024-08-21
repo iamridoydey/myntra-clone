@@ -2,9 +2,11 @@ import { CgProfile } from "react-icons/cg";
 import { FaHeart } from "react-icons/fa";
 import { IoBagHandleSharp } from "react-icons/io5";
 import { Link } from "react-router-dom";
-
+import {useSelector} from "react-redux"
 
 function Header() {
+  const cart = useSelector((store)=> store.cart);
+
   return (
     <header>
       <div className="logo_container">
@@ -47,7 +49,7 @@ function Header() {
         <Link className="action_container" to={"/bag"}>
           <IoBagHandleSharp />
           <span className="action_name">Bag</span>
-          <span className="bag-item-count">0</span>
+          <span className="bag-item-count">{cart.length}</span>
         </Link>
       </div>
     </header>

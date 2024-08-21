@@ -1,12 +1,14 @@
-import {configureStore} from "@reduxjs/toolkit"
-import itemsSlice from "./itemsSlice"
-import fetchStatusSlice from "./FetchStatusSlice";
+import { configureStore } from "@reduxjs/toolkit";
+import itemsSlice from "./itemsSlice";
+import fetchStatusSlice from "./fetchStatusSlice";
+import bagSlice from "./bagSlice";
 
-const store = configureStore(
-  {reducer: {
+const store = configureStore({
+  reducer: {
     items: itemsSlice.reducer,
-    fetchStatus: fetchStatusSlice.reducer
-  }}
-)
+    fetchStatus: fetchStatusSlice.reducer,
+    cart: bagSlice.reducer
+  },
+});
 
 export default store;

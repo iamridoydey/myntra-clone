@@ -5,9 +5,10 @@ import "./index.css";
 import { createBrowserRouter } from "react-router-dom";
 import { RouterProvider } from "react-router-dom";
 import Bag from "./routes/Bag.jsx";
-import HomeItem from "./components/HomeItem.jsx";
 import { Provider } from "react-redux";
 import store from "./store/index.js";
+import HomeItem from "./components/HomeItem.jsx";
+import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 
 const router = createBrowserRouter([
   {

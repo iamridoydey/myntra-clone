@@ -1,7 +1,17 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { bagSliceAction } from "../store/bagSlice";
 
 function HomeItem() {
   const items = useSelector((store) => store.items);
+  const dispatch = useDispatch();
+
+  const handleOnAdd = (id)=>{
+    console.log("Item Id: " + id);
+    dispatch(bagSliceAction.pushItem(id));
+  }
+
+  
+
   return (
     <div className="items-container">
       {items.map((item) => (
@@ -17,7 +27,9 @@ function HomeItem() {
             <span className="original-price">Rs {item.original_price}</span>
             <span className="discount">({item.discount_percentage}% OFF)</span>
           </div>
-          <button className="btn-add-bag" onClick={()=> console.log("Button being clicked.")}>Add to Bag</button>
+          <button className="btn-add-bag" onClick={() => handleOnAdd(item.id)}>
+            Add to Bag
+          </button>
         </div>
       ))}
     </div>

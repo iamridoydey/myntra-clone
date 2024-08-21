@@ -1,25 +1,34 @@
-function BagSummary() {
-  const bagSummary = {
-    totalItem: 3,
-    totalMRP: 2118,
-    totalDiscount: 45,
-    finalPayment: 2118 - 45, // Or use a method to compute this dynamically
+function BagSummary({ cartList }) {
+  const cart = {
+    totalItem: cartList.length,
+    totalMRP: 0,
+    totalDiscount: 0,
+    finalPayment: 0,
   };
+
+  for (let i = 0; i < cartList.length; i++) {
+    let item = cartList[i];
+    cart.totalMRP += item.original_price;
+    cart.totalDiscount += Math.round(item.original_price * item.discount_percentage / 100);
+  }
+
+  // Final payment  += convenienceFee
+  cart.finalPayment = cart.totalMRP - cart.totalDiscount + 99;
 
   return (
     <div className="bag-summary">
       <div className="bag-details-container">
         <div className="price-header">
-          PRICE DETAILS ({bagSummary.totalItem} Items){" "}
+          PRICE DETAILS ({cart.totalItem} Items){" "}
         </div>
         <div className="price-item">
           <span className="price-item-tag">Total MRP</span>
-          <span className="price-item-value">₹{bagSummary.totalMRP}</span>
+          <span className="price-item-value">₹{cart.totalMRP}</span>
         </div>
         <div className="price-item">
           <span className="price-item-tag">Discount on MRP</span>
           <span className="price-item-value priceDetail-base-discount">
-            -₹{bagSummary.totalDiscount}
+            -₹{cart.totalDiscount}
           </span>
         </div>
         <div className="price-item">
@@ -29,7 +38,7 @@ function BagSummary() {
         <hr />
         <div className="price-footer">
           <span className="price-item-tag">Total Amount</span>
-          <span className="price-item-value">₹{bagSummary.finalPayment}</span>
+          <span className="price-item-value">₹{cart.finalPayment}</span>
         </div>
       </div>
       <button className="btn-place-order">
