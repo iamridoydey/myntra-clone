@@ -142,7 +142,7 @@ header {
 
 .copyright {
   color: #94969f;
-  text-align: end;
+  text-align: center;
   padding: 15px;
 }
 
@@ -150,10 +150,12 @@ header {
   width: 80%;
   margin: 40px 10%;
 }
-.item-container {
+
+.item {
   width: 250px;
   margin: 10px;
 }
+
 .item-image {
   width: 100%;
 }
@@ -255,6 +257,10 @@ a.action_container:link {
 .bag-page {
   width: 75%;
   margin-left: 12.5%;
+  margin-top: 25px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 
 .bag-summary {
@@ -323,21 +329,31 @@ a.action_container:link {
   border-radius: 4px;
   position: relative;
   padding: 12px 12px 0;
+  width: 60%;
+  display: flex;
+  gap: 20px;
 }
 
 .item-left-part {
-  position: absolute;
+  width: 30%;
+  margin: 10px;
   background: rgb(255, 242, 223);
-  height: 148px;
-  width: 111px;
 }
 
-.item-right-part {
-  padding-left: 12px;
-  position: relative;
-  min-height: 148px;
-  margin-left: 111px;
-  margin-bottom: 12px;
+.right-part-container {
+    margin-top: 10px;
+}
+
+h2.company, h3.item-name {
+    margin-bottom:  10px;
+}
+
+.remove-button {
+  position: absolute;
+  top: 0;
+  right: 15px;
+  font-size: 25px;
+  cursor: pointer;
 }
 
 .bag-item-img {
@@ -366,16 +382,6 @@ a.action_container:link {
 
 .delivery-details-days {
   color: #03a685;
-}
-
-.remove-from-cart {
-  position: absolute;
-  font-size: 25px;
-  top: 10px;
-  right: 18px;
-  width: 14px;
-  height: 14px;
-  cursor: pointer;
 }
 
 .spinner {

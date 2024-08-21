@@ -1,6 +1,9 @@
-function HomeItem({ items }) {
+import { useSelector } from "react-redux";
+
+function HomeItem() {
+  const items = useSelector((store) => store.items);
   return (
-    <div className="item-container">
+    <div className="items-container">
       {items.map((item) => (
         <div key={item.id} className="item">
           <img className="item-image" src={item.image} alt="item image" />
